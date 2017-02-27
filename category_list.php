@@ -33,7 +33,7 @@ $statement->closeCursor();
 		<!-- add code for the rest of the table here -->
 		<?php foreach ($categories as $category) : ?>
 		<tr>
-			<td><?php echo $categor['categoryName']; ?></td>
+			<td><?php echo $category['categoryName']; ?></td>
 			<td><form action="delete_product.php" method="post">
 				<input type="submit" value="Delete">
 			</form></td>
@@ -43,7 +43,8 @@ $statement->closeCursor();
 
 	<h2>Add Category</h2>
 	<!-- add code for the form here -->
-
+	<p><a href="add_category_form.php">Add Category</a></p>
+	
 	<br>
 	<p><a href="index.phps">List Products</a></p>
 
