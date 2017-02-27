@@ -2,8 +2,7 @@
 require_once('database.php');
 
 //Get all categories
-$query = 'SELECT * FROM categories_guitar1
-			ORDER BY categoryID';
+$query = 'SELECT * FROM categories_guitar1 ORDER BY categoryID';
 $statement = $db->prepare($query);
 $statement->execute();
 $categories = $statement->fetchAll();
@@ -24,6 +23,7 @@ $statement->closeCursor();
 <header><h1>Product Manager</h1></header>
 <main>
 	<h1>Category List</h1>
+	
 	<table>
 		<tr>
 			<th>Name</th>
@@ -31,7 +31,14 @@ $statement->closeCursor();
 		</tr>
 
 		<!-- add code for the rest of the table here -->
-
+		<?php foreach ($categories as $category) : ?>
+		<tr>
+			<td><?php echo $categor['categoryName']; ?></td>
+			<td><form action="delete_product.php" method="post">
+				<input type="submit" value="Delete">
+			</form></td>
+		</tr>
+		<?php endforeach; ?>
 	</table>
 
 	<h2>Add Category</h2>
